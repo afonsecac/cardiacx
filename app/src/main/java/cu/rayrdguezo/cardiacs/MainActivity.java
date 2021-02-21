@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     if (numberChannels == 2)
                     {
                         //type = BTRecibirGraficarActivity.TwinTrac;
-                        type = 0x04;
+                        type = 0x4;
                     }
 
                     String btAddress = bundle.getString(BuscarDispositivosActivity.INTENT_RESULTEXTRA_DEVICEADDRESS);
