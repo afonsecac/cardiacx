@@ -8,10 +8,29 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.io.IOException;
+
 public class EstabConexRecibirDatosActivity extends AppCompatActivity {
+
+    private enum Mode
+    {
+        THREE_CHANNEL_1,
+        THREE_CHANNEL_2,
+        THREE_CHANNEL_3,
+        THREE_CHANNEL_4,
+        SIX_CHANNEL_1,
+        SIX_CHANNEL_2,
+        TWELVE_CHANNEL
+    }
+
+    private final String logTag = getClass().getSimpleName();
+
+    //Va a ser igual a 0x4 por ser twintrac el dispositivo al que nos estamos conectando
+    private int device;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,5 +65,25 @@ public class EstabConexRecibirDatosActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void createBtReceiver(Patient pat, String btAddress,
+                                  boolean startReceiverFirstTime)
+    {
+        try
+        {
+            if (device == TwinTrac)
+            {
+                next_mode = Mode.THREE_CHANNEL_1;
+                twinTracReceiver = new TwinTracBtReceiver(btAddress, device,
+                        onlineControl, this, this, pat, this,
+                        startReceiverFirstTime);
+                twinTracReceiver.execute(this);
+            }
+        }
+        catch (IOException e)
+        {
+            Log.e(logTag, e.getLocalizedMessage(), e);
+        }
     }
 }
