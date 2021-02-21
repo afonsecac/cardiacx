@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -107,6 +108,11 @@ public class BuscarDispositivosActivity extends AppCompatActivity implements Rec
         setContentView(R.layout.activity_buscar_dispositivos);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //para poner la flecha en el menu de ir atras
+        if (getSupportActionBar()!= null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
         recyclerView = (RecyclerView) findViewById(R.id.recycBuscarDispositivos);
         recyclerView.setHasFixedSize(true);
@@ -138,6 +144,19 @@ public class BuscarDispositivosActivity extends AppCompatActivity implements Rec
 
         // Unregister broadcast listeners
         unregisterReceiver(inquiryReceiver);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            finish();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

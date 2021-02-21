@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -36,8 +37,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
 
                 Intent i = new Intent(MainActivity.this, BuscarDispositivosActivity.class);
                 startActivity(i);
@@ -61,15 +63,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
 
-        if (id == R.id.nav_gallery) {
-            /*Intent intent = new Intent(MainActivity.this,TabsActivity.class);
-            startActivity(intent);*/
+        if (id == R.id.nav_online_control) {
+
+            Intent intent = new Intent(this, BuscarDispositivosActivity.class);
+            intent.putExtra(BuscarDispositivosActivity.EXTRA_SHOULD_START_RECEIVER, true);
+            startActivityForResult(intent, BuscarDispositivosActivity.ACTIVITY_REQUESTCODE_INQUIRY);
+
+        }else if(id == R.id.nav_offline_control){
+
+            Intent intent = new Intent(this, BuscarDispositivosActivity.class);
+            intent.putExtra(BuscarDispositivosActivity.EXTRA_SHOULD_START_RECEIVER, false);
+            startActivityForResult(intent, BuscarDispositivosActivity.ACTIVITY_REQUESTCODE_INQUIRY);
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -81,7 +93,54 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        switch (requestCode)
+        {
+
+            case BuscarDispositivosActivity.ACTIVITY_REQUESTCODE_INQUIRY:
+            {
+                if (resultCode == RESULT_OK)
+                {
+                    Bundle bundle = data.getExtras();
+                    // Select ECG type (2-channel/8-channel)
+                    int numberChannels = bundle.getInt(BuscarDispositivosActivity.EXTRA_NUMBER_OF_CHANNELS);
+                    int type = 0;
+                    if (numberChannels == 2)
+                    {
+                        //type = BTRecibirGraficarActivity.TwinTrac;
+                        type = 0x04;
+                    }
+
+                    String btAddress = bundle.getString(BuscarDispositivosActivity.INTENT_RESULTEXTRA_DEVICEADDRESS);
+                    startBT12Receiver(btAddress, type, true);
+                }
+
+                break;
+            }
+            default:
+            {
+                break;
+            }
+        }
 
 
+
+    }
+
+    private void startBT12Receiver(String btAddress, int device,
+                                   boolean onlineControl)
+    {
+        /*Intent bt12ReceiverGraphIntent = new Intent(MainActivity.this,
+                BTRecibirGraficarActivity.class);
+
+        bt12ReceiverGraphIntent.putExtra(
+                BTRecibirGraficarActivity.EXTRAKEY_ECGDEVICE_BTADDRESS, btAddress);
+        bt12ReceiverGraphIntent.putExtra(
+                BTRecibirGraficarActivity.EXTRAKEY_ECGDEVICE_TYPE, device);
+        bt12ReceiverGraphIntent.putExtra(
+                BTRecibirGraficarActivity.ONLINE_CONTROL, onlineControl);
+        startActivity(bt12ReceiverGraphIntent);
+
+         */
+        Toast.makeText(MainActivity.this, "startBT12Receiver",Toast.LENGTH_SHORT).show();
     }
 }
