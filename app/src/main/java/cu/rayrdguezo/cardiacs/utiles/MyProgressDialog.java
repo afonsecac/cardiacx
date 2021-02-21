@@ -1,4 +1,4 @@
-package cu.rayrdguezo.cardiacprueba.utiles;
+package cu.rayrdguezo.cardiacs.utiles;
 
 import android.app.ProgressDialog;
 import android.content.Context;
