@@ -181,7 +181,7 @@ public class BuscarDispositivosActivity extends AppCompatActivity implements Rec
 
     private void startInquiry()
     {
-        Log.d(getClass().getSimpleName(), "Start Inquiry");
+        Log.d(getClass().getSimpleName(), "Iniciar la busqueda de dispositivos");
 
         // Indicar el buscar dispositivo
         dialog = new MyProgressDialog(this);
