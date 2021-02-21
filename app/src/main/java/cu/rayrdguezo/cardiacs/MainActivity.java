@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();*/
 
-                Intent i = new Intent(MainActivity.this, BuscarDispositivosActivity.class);
+                Intent i = new Intent(MainActivity.this, EstabConexRecibirDatosActivity.class);
                 startActivity(i);
 
             }
