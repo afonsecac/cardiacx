@@ -13,9 +13,12 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/nav_offline_control" />
         <item
-            android:visible="false"
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:title="Salvar paciente de prueba" />
+        <item
+            android:id="@+id/nav_guardar_btaddress"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Guardar bluetooth de prueba" />
     </group>
 </menu>

@@ -15,7 +15,7 @@
         <activity
             android:name=".EstabConexRecibirDatosActivity"
             android:label="@string/title_activity_estab_conex_recibir_datos"
-            android:theme="@style/Theme.Cardiacs.NoActionBar"></activity>
+            ></activity>
         <activity
             android:name=".BuscarDispositivosActivity"
             android:label="@string/title_activity_buscar_dispositivos"

@@ -5,4 +5,7 @@
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="ecg_view_patient_name_size">15sp</dimen>
+    <dimen name="ecg_view_sub_titles_size">10sp</dimen>
 </resources>

@@ -1,6 +1,7 @@
 package cu.rayrdguezo.cardiacs;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,9 +24,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.util.Calendar;
+
+import cu.rayrdguezo.cardiacs.terceros.twintrac.bluecor.data.Data;
+import cu.rayrdguezo.cardiacs.terceros.twintrac.cs.data.Patient;
+import cu.rayrdguezo.cardiacs.utiles.DatabaseSave;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
+
+    public static final String PREFS_FILE = "CardioScoutPrefs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +50,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();*/
 
-                Intent i = new Intent(MainActivity.this, EstabConexRecibirDatosActivity.class);
-                startActivity(i);
+                //startBT12Receiver("00:04:3E:9C:28:50",4,false);
+                startConexion("00:04:3E:9C:28:50",4,false);
 
             }
         });
@@ -82,6 +91,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             intent.putExtra(BuscarDispositivosActivity.EXTRA_SHOULD_START_RECEIVER, false);
             startActivityForResult(intent, BuscarDispositivosActivity.ACTIVITY_REQUESTCODE_INQUIRY);
 
+        }else if (id == R.id.nav_slideshow){
+            crearPaciente();
+        }else if (id == R.id.nav_guardar_btaddress){
+            saveBTAddress();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -129,18 +142,60 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void startBT12Receiver(String btAddress, int device,
                                    boolean onlineControl)
     {
-        /*Intent bt12ReceiverGraphIntent = new Intent(MainActivity.this,
-                BTRecibirGraficarActivity.class);
+        Intent bt12ReceiverGraphIntent = new Intent(MainActivity.this,
+                EstabConexRecibirDatosActivity.class);
 
         bt12ReceiverGraphIntent.putExtra(
-                BTRecibirGraficarActivity.EXTRAKEY_ECGDEVICE_BTADDRESS, btAddress);
+                EstabConexRecibirDatosActivity.EXTRAKEY_ECGDEVICE_BTADDRESS, btAddress);
         bt12ReceiverGraphIntent.putExtra(
-                BTRecibirGraficarActivity.EXTRAKEY_ECGDEVICE_TYPE, device);
+                EstabConexRecibirDatosActivity.EXTRAKEY_ECGDEVICE_TYPE, device);
         bt12ReceiverGraphIntent.putExtra(
-                BTRecibirGraficarActivity.ONLINE_CONTROL, onlineControl);
+                EstabConexRecibirDatosActivity.ONLINE_CONTROL, onlineControl);
         startActivity(bt12ReceiverGraphIntent);
 
-         */
+
         Toast.makeText(MainActivity.this, "startBT12Receiver",Toast.LENGTH_SHORT).show();
+    }
+
+    public void startConexion(String btAddress, int device,
+                              boolean onlineControl){
+        Intent bt12ReceiverGraphIntent = new Intent(MainActivity.this, EstabConexRecibirDatosActivity.class);
+
+        Patient patient = DatabaseSave.paciente(getApplicationContext());
+
+        bt12ReceiverGraphIntent.putExtra(EstabConexRecibirDatosActivity.EXTRAKEY_ECGDEVICE_BTADDRESS, btAddress);
+        bt12ReceiverGraphIntent.putExtra(EstabConexRecibirDatosActivity.EXTRAKEY_ECGDEVICE_TYPE, device);
+        bt12ReceiverGraphIntent.putExtra("Patient", patient );
+        bt12ReceiverGraphIntent.putExtra(EstabConexRecibirDatosActivity.ONLINE_CONTROL, onlineControl);
+        startActivity(bt12ReceiverGraphIntent);
+    }
+
+    private void crearPaciente(){
+
+
+
+        Calendar cal = Calendar.getInstance();
+        cal.set(1990, 10,
+                20, 0, 0, 0);
+
+        // Build patient
+        Patient patient = new Patient();
+        patient.getAddress().setFirstname("Juan");
+        patient.getAddress().setLastname("Ruiz");
+        patient.setPatientID("1234");
+        patient.setBirthdate(cal.getTime());
+        patient.setSex(Patient.Sex.valueOf("Male"));
+
+        DatabaseSave.salvarPaciente(patient,getApplicationContext());
+
+    }
+
+    private void saveBTAddress()
+    {
+        SharedPreferences preferences = getSharedPreferences(PREFS_FILE, MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(EstabConexRecibirDatosActivity.EXTRAKEY_ECGDEVICE_BTADDRESS, "00:04:3E:9C:28:50");
+        editor.putInt(EstabConexRecibirDatosActivity.EXTRAKEY_ECGDEVICE_TYPE, EstabConexRecibirDatosActivity.TwinTrac);
+        editor.commit();
     }
 }

@@ -11,21 +11,21 @@ public class MyProgressDialog {
         this.progressDialog = new ProgressDialog(context);
     }
 
-    public void mostrarCargando (final String texto){
+    public void mostrar(final String texto){
         progressDialog.setMessage(texto);
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
     }
 
-    public void mostrarCargando (){
+    public void mostrar(){
         progressDialog.setMessage("Cargando ...");
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
     }
 
-    public void ocultarCargando (){
+    public void ocultar(){
         progressDialog.dismiss();
     }
 

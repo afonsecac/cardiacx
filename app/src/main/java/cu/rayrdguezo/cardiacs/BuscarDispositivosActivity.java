@@ -53,7 +53,7 @@ public class BuscarDispositivosActivity extends AppCompatActivity implements Rec
             {
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 Log.d("BuscarDispositivo", "dispositivo bluetooth encontrado: " + device.getName() + " (" + device.getAddress() + ")");
-                dialog.ocultarCargando();
+                dialog.ocultar();
                 //Toast.makeText(context,"Dispositivo bluetooth encontrado: " + device.getName() + " (" + device.getAddress() + ")",Toast.LENGTH_SHORT).show();
                 for (int i = 0; i < deviceList.length; i++)
                 {
@@ -69,7 +69,8 @@ public class BuscarDispositivosActivity extends AppCompatActivity implements Rec
             }
             else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action))
             {
-                dialog.ocultarCargando();
+                dialog.ocultar();
+                dd();
                 //Toast.makeText(context,"Busqueda finalizada",Toast.LENGTH_SHORT).show();
             }
         }
@@ -185,7 +186,7 @@ public class BuscarDispositivosActivity extends AppCompatActivity implements Rec
 
         // Indicar el buscar dispositivo
         dialog = new MyProgressDialog(this);
-        dialog.mostrarCargando("Buscando dispositivos ...");
+        dialog.mostrar("Buscando dispositivos ...");
 
         // Request discover from BluetoothAdapter
         btAdapter.startDiscovery();
@@ -212,6 +213,21 @@ public class BuscarDispositivosActivity extends AppCompatActivity implements Rec
             }
         }
         return 0;
+    }
+
+    public void dd(){
+        int channelNumber = 2;
+
+        // Create the result Intent and include the MAC address
+        Intent intent = new Intent();
+        intent.putExtra(INTENT_RESULTEXTRA_DEVICEADDRESS,
+                "00:04:3E:9C:28:50");
+        intent.putExtra(EXTRA_SHOULD_START_RECEIVER, shouldStartReceiver);
+        intent.putExtra(EXTRA_NUMBER_OF_CHANNELS, channelNumber);
+
+        // Set result and finish this Activity
+        setResult(Activity.RESULT_OK, intent);
+        finish();
     }
 
 

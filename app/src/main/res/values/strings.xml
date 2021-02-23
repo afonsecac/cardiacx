@@ -20,4 +20,217 @@
     <string name="previous">Previous</string>
 
 
+    <string name="tab_user">User</string>
+    <string name="service_name">Cor1043_BP</string>
+    <string name="notification_id">notification</string>
+    <string name="menu_item_start_inquiry">Search devices</string>
+    <string name="menu_item_prepare_device">Prepare device</string>
+    <string name="title_text_inquiring">Searching devices…</string>
+    <string name="notification_bt_connection">Connect with Bluetooth
+		measurement device</string>
+    <string name="message_no_bluetooth">Bluetooth is unavailable!</string>
+    <string name="menu_item_register_oauth">Register for OAuth</string>
+    <string name="menu_item_unregister_oauth">Register for OAuth</string>
+    <string name="menu_item_sync">Sync</string>
+    <string name="menu_item_add_measurement">Add Measurement</string>
+    <string name="menu_item_show_graph">Show Graph</string>
+    <string name="menu_item_graph_settings">Graph settings</string>
+    <string name="menu_item_invert">Invert</string>
+    <string name="menu_item_save_pdf">Send as PDF</string>
+    <string name="menu_item_edit_findings">Edit findings</string>
+    <string name="label_edit_oauth_username">Username</string>
+    <string name="label_edit_oauth_password">Password</string>
+    <string name="label_edit_server_url">New server URL</string>
+    <string name="label_current_server_url">Current server URL:</string>
+    <string name="title_text_uploading">Uploading…</string>
+    <string name="title_text_downloading">Downloading…</string>
+    <string name="title_text_preparing">Preparing device…</string>
+    <string name="title_text_registeriring">Registering…</string>
+    <string name="title_text_loading_patients">Loading patient list…</string>
+    <string name="title_text_select_patient">Select patient</string>
+    <string name="title_text_select_ecg_type">Select ECG type</string>
+    <string name="notification_oauth_successful">Authentification
+		successful</string>
+    <string name="edit_systolic_hint">mmHg</string>
+    <string name="edit_diastolic_hint">mmHg</string>
+    <string name="edit_hr_hint">/min</string>
+    <string name="save">Save</string>
+    <string name="delete_measurement_confirmation">Are you sure you
+		want to delete the measurement?</string>
+    <string name="delete_patient_confirmation">Are you sure you
+		want to delete the patient and all measurements of the patient?</string>
+    <string name="tab_bp">Blood Pressure</string>
+    <string name="tab_weight">Weight</string>
+    <string name="glucose_pre">Preprandial</string>
+    <string name="glucose_post">Postprandial</string>
+    <string name="tab_glucose">Glucose</string>
+    <string name="tab_ecg">ECG</string>
+    <string name="arhytmia">Arrhythmia</string>
+    <string name="message_btRequired">Bluetooth is required!</string>
+    <string name="notification_serviceUp">Receiver Service started…</string>
+    <string name="confirmationMessage_stopService">Stop receiver?</string>
+    <string name="confirmationTitle">Confirm</string>
+    <string name="buttonText_defaultAvetana">Use Avetana server</string>
+    <string name="measurement_received">Measurement retrieved</string>
+    <string name="contentprovider_authority">de.avetana.cs.contentprovider</string>
+    <string name="arrhythmiaSymbol">!</string>
+    <string name="menuItemDelete">Delete</string>
+    <string name="menu_item_inquire">Inquire</string>
+    <string name="menu_item_start_long">Start ECG Recording</string>
+    <string name="menu_item_start_short">Start</string>
+    <string name="menu_item_changeServer">Change server</string>
+    <string name="avetana_server">Avetana server</string>
+    <string name="menu_item_user">User</string>
+    <string name="menu_item_log_in">Log in</string>
+    <string name="menu_item_log_out">Log out</string>
+    <string name="menu_item_download_patient">Download patient</string>
+    <string name="menu_item_create_patient">Create patient</string>
+    <string name="menu_item_sync_patient">Sync patient</string>
+    <string name="menu_item_select_patient">Select patient</string>
+    <string name="menu_item_delete_patient">Delete patient</string>
+    <string name="menu_item_log_out_patient">Log out patient</string>
+
+    <string name="invalid_server_url">Invalid server URL</string>
+    <string name="login">Login</string>
+    <string name="user">User</string>
+    <string name="patient">Patient</string>
+    <string name="label_first_name">First name</string>
+    <string name="label_last_name">Last name</string>
+    <string name="label_patient_id">Patient ID</string>
+    <string name="label_gender">Gender</string>
+    <string name="label_birthday">Birth date</string>
+    <string name="buttonText_male">Male</string>
+    <string name="buttonText_female">Female</string>
+    <string name="herr">Mr.</string>
+    <string name="frau">Ms.</string>
+    <string name="depp">Jerk</string>
+    <string name="maennlich">male</string>
+    <string name="weiblich">female</string>
+    <string name="label_doctor">Doctor:</string>
+    <string name="label_offline">Offline</string>
+    <string name="pid_exists">Patient ID exists already!</string>
+    <string name="connection_closed_error">Connection may be closed unexpectedly. Please try again.</string>
+    <string name="two_channel">2-Channel ECG</string>
+    <string name="three_plus_three_channel">3+3-Channel ECG</string>
+    <string name="eight_channel">8-Channel ECG</string>
+    <string name="twelve_channel">12-Channel ECG</string>
+    <string name="label_rec_time">Rec. time</string>
+    <string name="label_bt_online_time">BT online time</string>
+    <string name="label_bt_reactivate">BT reactivate</string>
+    <string name="label_samp_rate">Samp. rate</string>
+    <string name="title_tabs_name">%1$s, %2$s (%3$s)</string>
+
+    <string name="print_bp">%1$d/%2$d %3$s %4$d%5$s</string>
+    <string name="print_weight">%1$.1f %2$s</string>
+    <string name="print_glucose">%1$.2f %2$s (%3$s)</string>
+
+    <string name="menu_sync">Sync</string>
+    <string name="menu_new_bp">Add BP</string>
+    <string name="menu_new_glucose">Add glucose</string>
+    <string name="menu_new_weight">Add weight</string>
+    <string name="menu_new_ecg">Add ecg</string>
+    <string name="menu_add_value">add value</string>
+
+    <string name="menu_settings">Settings</string>
+
+    <string name="measurement_text">Messung</string>
+    <string name="unit_bp">mmHg </string>
+    <string name="unit_time_min">/min</string>
+    <string name="partion_sign">/</string>
+    <string name="dot_number">.</string>
+
+    <string name="toast_max_min">Wert wird</string>
+    <string name="glucose_unit_mol">mmol/l</string>
+    <string name="glucose_unit_mg">mg/dl</string>
+    <string name="weight_unit_kg">kg</string>
+    <string name="weight_unit_lbs">lbs</string>
+    <string name="weight_setting_title">weight unit</string>
+    <string name="weight_unit_key">listWeightlist</string>
+
+    <string name="weight_default">Einheit</string>
+    <string name="default_title">Einheit</string>
+
+    <string name="glucose_before">Präprandial</string>
+    <string name="glucose_after">Postprandial</string>
+    <string name="glucose_unit_key">listGlucoseunit</string>
+    <string name="glucose_setting_title">glucose unit</string>
+
+    <string name="url_change_name">change url</string>
+    <string name="url_change_comment">set the url to connect</string>
+    <string name="url_change_key">urledit</string>
+    <string name="url_change_title">url</string>
+    <string name="url_default_link">https://www.avetana.de/file/</string>
+    <!-- <string name="url_default_link">http://10.0.1.22:8080/files/</string>  -->
+
+    <string name="time_measurement">timestamp</string>
+
+    <string name="menu_item_change_view_title">change view</string>
+    <string name="menu_item_change_view_three">3-channel view</string>
+    <string name="menu_item_change_view_six">3+3-channel view</string>
+    <string name="menu_item_change_view_twelve">12-channel view</string>
+
+    <string name="sync_information">Synchronizing</string>
+    <string name="sync_info_comment">Please wait...</string>
+
+    <string name="number_of_y_values">6</string>
+    <string name="back_previous_view">back</string>
+    <string name="forward_next_view">forward</string>
+    <string name="graph_view_settings">graph settings</string>
+    <string name="radio_one_day_view">one day view</string>
+    <string name="radio_one_week_view">one week view</string>
+    <string name="radio_one_month_view">one month view</string>
+    <string name="radio_all_view">all view</string>
+
+    <!-- expand text -->
+    <string name="menu_item_show_online_ecg">Online control</string>
+    <string name="menu_item_show_online_patient_ecg">patient data</string>
+    <string name="dialog_question_finish_measurement">Stopp measurement?</string>
+    <string name="dialog_question_finish_measurement_ok">Stopp</string>
+    <string name="dialog_question_finish_measurement_no">Continue</string>
+    <string name="dialog_question_finish_measurement_lockscreen">Lock screen</string>
+    <string name="channel_label_translation">channel</string>
+    <string name="dialog_patient_information_title">patient information</string>
+
+    <string name="menu_item_label_set_marker">set marker</string>
+    <string name="menu_marker_title">select marker</string>
+    <string name="menu_item_marker_1">marker 1:</string>
+    <string name="menu_item_marker_2">marker 2:</string>
+    <string name="menu_item_marker_3">marker 3:</string>
+    <string name="menu_item_marker_4">marker 4:</string>
+    <string name="menu_item_marker_5">marker 5:</string>
+    <string name="menu_item_marker_6">marker 6:</string>
+    <string name="menu_item_marker_7">marker 7:</string>
+    <string name="menu_item_marker_8">marker 8:</string>
+    <string name="menu_item_marker_9">marker 9:</string>
+    <string name="menu_item_marker_10">marker 10:</string>
+
+    <string name="error_patientNotSynconized">The selected patient is not synchronized. Live ECG transmission only allowed with server synchronized patients!</string>
+    <!-- 16.12.2016 string translations -->
+    <string name="battery_capacity_text">Battery capacity:</string>
+    <string name="remaining_time_text">Remaining time:</string>
+    <string name="heart_rate_text">Heart rate:</string>
+    <string name="temperature_text">Temp values:</string>
+    <string name="error_bt_connection_title">Error during BT connection</string>
+    <string name="error_bt_connection_content">Bluetooth socket could not be open. Please start the measurement again.\nError message:</string>
+    <string name="error_during_bt_transmission_title">Error during BT transmission</string>
+    <string name="error_during_bt_transmission_content">Try multiple times sending a command without success. Start the measurement again.</string>
+
+    <string name="tv_acc_average_text">ACC average</string>
+    <string name="device_admin_additional_text">This application needs Admin permission to lock the screen for a long term ECG monitoring.</string>
+
+    <string name="password">enter password</string>
+    <string name="dialog_menu_title_authen">Authentication</string>
+    <string name="dialog_menu_title_authen_failed">Entered password is not correct!</string>
+    <string name="dialog_reconnect_to_device">Reconnect to device&#8230;</string>
+    <string name="update_connecting">Connecting to TwinTrac. Please, be sure that TwinTrac is active.</string>
+    <string name="settings_update_start_info_text">You can start the Update also from settings!</string>
+    <string name="update_dialog_available">TwinTrac Update</string>
+    <string name="update_dialog_confirm_text">A new TwinTrac update is available. Do you want to start the update process?</string>
+    <string name="no_update_file_available">There is no update file available!</string>
+    <string name="checking_update_files">Checking for device updates on server</string>
+    <string name="update_firmware_dialog_title">Available Firmware</string>
+    <string name="dialog_edf_not_available">EDF file is not available</string>
+    <string name="menu_item_save_edf">Save EDF</string>
+
+
 </resources>

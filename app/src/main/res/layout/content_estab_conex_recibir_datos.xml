@@ -1,6 +1,243 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"></androidx.constraintlayout.widget.ConstraintLayout>
+    android:background="@android:color/white" >
+
+    <ScrollView
+        android:id="@+id/layoutParameter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:fadingEdge="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_twin_trac_patient_info" />
+
+                <TextView
+                    android:id="@+id/tvPatientInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/ecg_view_patient_name_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_twin_trac_battery_capa" />
+
+                <TextView
+                    android:id="@+id/tvBatteryValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="000"
+                    android:textSize="@dimen/ecg_view_patient_name_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_twin_trac_life_time_with_bt" />
+
+                <TextView
+                    android:id="@+id/tvRemainingTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="000"
+                    android:textSize="@dimen/ecg_view_patient_name_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_twin_trac_life_time_without_bt" />
+
+                <TextView
+                    android:id="@+id/tvRemainingTimeWithoutBt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="000"
+                    android:textSize="@dimen/ecg_view_patient_name_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/temp1Layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_twin_trac_temp1" />
+
+                <TextView
+                    android:id="@+id/tvTempValue1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="000"
+                    android:textSize="@dimen/ecg_view_patient_name_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/temp2Layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_twin_trac_temp2" />
+
+                <TextView
+                    android:id="@+id/tvTempValue2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="000"
+                    android:textSize="@dimen/ecg_view_patient_name_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/temp3Layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_twin_trac_temp3" />
+
+                <TextView
+                    android:id="@+id/tvTempValue3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="000"
+                    android:textSize="@dimen/ecg_view_patient_name_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hrRateLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_twin_trac_hr" />
+
+                <TextView
+                    android:id="@+id/tvHrValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="000"
+                    android:textSize="@dimen/ecg_view_patient_name_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/acc_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/tv_acc_average_text"
+                    android:textSize="@dimen/ecg_view_sub_titles_size" />
+
+                <ProgressBar
+                    android:id="@+id/acc_progressbar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:max="8000"
+                    android:progressDrawable="@drawable/custom_progressbar" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/layoutGraphView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/layoutParameter"
+        android:orientation="horizontal" >
+
+        <!-- In this way the inner class has to be public static… -->
+
+        <view
+            android:id="@+id/ecgAxisView"
+            android:layout_width="55dp"
+            android:layout_height="fill_parent"
+            class="cu.rayrdguezo.cardiacs.EstabConexRecibirDatosActivity$BT12AxisView" >
+        </view>
+
+        <HorizontalScrollView
+            android:id="@+id/bt12GraphScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent" >
+        </HorizontalScrollView>
+    </LinearLayout>
+
+</RelativeLayout>
