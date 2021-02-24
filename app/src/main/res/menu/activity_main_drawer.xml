@@ -3,12 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+
         <item
+            android:visible="false"
             android:id="@+id/nav_online_control"
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/nav_online_control" />
         <item
+            android:visible="false"
             android:id="@+id/nav_offline_control"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/nav_offline_control" />
@@ -17,8 +19,21 @@
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Salvar paciente de prueba" />
         <item
+            android:visible="false"
             android:id="@+id/nav_guardar_btaddress"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Guardar bluetooth de prueba" />
-    </group>
+        <item
+            android:id="@+id/nav_buscar_dispositivo"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Buscar dispositivo" />
+        <item
+            android:id="@+id/nav_est_cone_recibir_datos"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Recibir datos" />
+        <item
+            android:id="@+id/nav_est_cone_recibir_datos_de"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Recibir de 00:04:3E:9C:28:50" />
+
 </menu>

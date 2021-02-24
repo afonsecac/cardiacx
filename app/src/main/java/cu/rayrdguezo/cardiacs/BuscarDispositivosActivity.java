@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -20,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -70,8 +72,8 @@ public class BuscarDispositivosActivity extends AppCompatActivity implements Rec
             else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action))
             {
                 dialog.ocultar();
-                dd();
-                //Toast.makeText(context,"Busqueda finalizada",Toast.LENGTH_SHORT).show();
+                //dd();
+                Toast.makeText(context,"Busqueda finalizada",Toast.LENGTH_SHORT).show();
             }
         }
     };
@@ -127,8 +129,8 @@ public class BuscarDispositivosActivity extends AppCompatActivity implements Rec
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
             }
         });
     }
@@ -167,6 +169,8 @@ public class BuscarDispositivosActivity extends AppCompatActivity implements Rec
         //Toast.makeText(this, "Position: " + String.valueOf(position) + "\n Device: " + selectedDevice.getName()+"\n Address: "+ selectedDevice.getAddress(), Toast.LENGTH_LONG).show();
 
         int cantDeCanales = cantDeCanales(dispositivoSeleccionado);
+
+        //saveBTAddress(dispositivoSeleccionado.getAddress());
 
         // Crear el resultado del Intent e incluir la direccion MAC
         Intent intent = new Intent();
@@ -228,6 +232,19 @@ public class BuscarDispositivosActivity extends AppCompatActivity implements Rec
         // Set result and finish this Activity
         setResult(Activity.RESULT_OK, intent);
         finish();
+    }
+
+    private void saveBTAddress(String btAddress)
+    {
+        //btAddress "00:04:3E:9C:28:50"
+
+        SharedPreferences preferences = getSharedPreferences(MainActivity.PREFS_FILE, MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(EstabConexRecibirDatosActivity.EXTRAKEY_ECGDEVICE_BTADDRESS, btAddress);
+        editor.putInt(EstabConexRecibirDatosActivity.EXTRAKEY_ECGDEVICE_TYPE, EstabConexRecibirDatosActivity.TwinTrac);
+        editor.commit();
+
+        Toast.makeText(getApplicationContext(),"Dispositivo guardado correctamente",Toast.LENGTH_SHORT).show();
     }
 
 

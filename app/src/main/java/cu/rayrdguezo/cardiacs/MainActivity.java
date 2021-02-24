@@ -3,6 +3,7 @@ package cu.rayrdguezo.cardiacs;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         .setAction("Action", null).show();*/
 
                 //startBT12Receiver("00:04:3E:9C:28:50",4,false);
-                startConexion("00:04:3E:9C:28:50",4,false);
+                //startConexion("00:04:3E:9C:28:50",4,false);
 
             }
         });
@@ -92,9 +93,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivityForResult(intent, BuscarDispositivosActivity.ACTIVITY_REQUESTCODE_INQUIRY);
 
         }else if (id == R.id.nav_slideshow){
+
             crearPaciente();
+
         }else if (id == R.id.nav_guardar_btaddress){
+
             saveBTAddress();
+
+        }else if (id == R.id.nav_est_cone_recibir_datos){
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            String btAddress = prefs.getString(EstabConexRecibirDatosActivity.EXTRAKEY_ECGDEVICE_BTADDRESS,
+                    "00:04:3E:9C:28:50");
+            startConexion(btAddress,4,false);
+
+        }else if (id == R.id.nav_est_cone_recibir_datos_de){
+
+            startConexion("00:04:3E:9C:28:50",4,false);
+
+        }else if (id == R.id.nav_buscar_dispositivo){
+            Intent intent = new Intent(this, BuscarDispositivosActivity.class);
+            intent.putExtra(BuscarDispositivosActivity.EXTRA_SHOULD_START_RECEIVER, false);
+            startActivityForResult(intent, BuscarDispositivosActivity.ACTIVITY_REQUESTCODE_INQUIRY);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -124,7 +144,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
 
                     String btAddress = bundle.getString(BuscarDispositivosActivity.INTENT_RESULTEXTRA_DEVICEADDRESS);
-                    startBT12Receiver(btAddress, type, true);
+                    saveBTAddress(btAddress);
+                    //startBT12Receiver(btAddress, type, true);
                 }
 
                 break;
@@ -170,6 +191,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startActivity(bt12ReceiverGraphIntent);
     }
 
+
     private void crearPaciente(){
 
 
@@ -197,5 +219,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         editor.putString(EstabConexRecibirDatosActivity.EXTRAKEY_ECGDEVICE_BTADDRESS, "00:04:3E:9C:28:50");
         editor.putInt(EstabConexRecibirDatosActivity.EXTRAKEY_ECGDEVICE_TYPE, EstabConexRecibirDatosActivity.TwinTrac);
         editor.commit();
+
+        Toast.makeText(getApplicationContext(),"Dispositivo guardado correctamente",Toast.LENGTH_SHORT).show();
+    }
+
+    private void saveBTAddress(String btaddress)
+    {
+        SharedPreferences preferences = getSharedPreferences(PREFS_FILE, MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(EstabConexRecibirDatosActivity.EXTRAKEY_ECGDEVICE_BTADDRESS, btaddress);
+        editor.putInt(EstabConexRecibirDatosActivity.EXTRAKEY_ECGDEVICE_TYPE, EstabConexRecibirDatosActivity.TwinTrac);
+        editor.commit();
+
+        Toast.makeText(getApplicationContext(),"Dispositivo guardado correctamente",Toast.LENGTH_SHORT).show();
     }
 }

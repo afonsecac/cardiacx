@@ -2,12 +2,14 @@ package cu.rayrdguezo.cardiacs.utiles;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.QueryBuilder;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import cu.rayrdguezo.cardiacs.terceros.twintrac.cs.data.DatabaseHelper;
@@ -22,47 +24,49 @@ public class DatabaseSave {
 
         DatabaseHelper bb = new DatabaseHelper(context);
 
-            try
-            {
-                bb.getPatientDao().delete(patient);
+        if (listaDePacientes(bb).size() == 0 ) {
+
+            try {
+                bb.getPatientDao().create(patient);
                 Log.d("Log salvar paciente",
                         String.format("Set active patient \"%s\"",
                                 patient.toString()));
 
-                listaDePacientes(bb);
-            }
-            catch (SQLException e)
-            {
+                if (listaDePacientes(bb).size() == 1) {
+                    Toast.makeText(context, "Paciente creado correctamente", Toast.LENGTH_SHORT).show();
+                }
+
+
+            } catch (SQLException e) {
                 Log.e("Log salvar paciente", e.getMessage());
             }
+        }else {
+            Toast.makeText(context,"El paciente de prueba ya esta creado",Toast.LENGTH_SHORT).show();
+        }
     }
 
-    public static void listaDePacientes(DatabaseHelper bb){
+    public static List<Patient> listaDePacientes(DatabaseHelper bb){
+
+        List<Patient> list = null;
 
         try {
             Dao<Patient, Integer> dao = bb.getPatientDao();
             QueryBuilder<Patient, Integer> qb = dao.queryBuilder();
-            List<Patient> list = dao.query(qb.prepare());
+            list = dao.query(qb.prepare());
             int size = list.size();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+
+        return list;
 
     }
 
     public static Patient paciente(Context context){
 
         DatabaseHelper bb = new DatabaseHelper(context);
-        Patient p =null;
-
-        try {
-            Dao<Patient, Integer> dao = bb.getPatientDao();
-            QueryBuilder<Patient, Integer> qb = dao.queryBuilder();
-            List<Patient> list = dao.query(qb.prepare());
-            p = list.get(0);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+        List<Patient> list = listaDePacientes(bb);
+        Patient p = list.get(0);
 
         return p;
 

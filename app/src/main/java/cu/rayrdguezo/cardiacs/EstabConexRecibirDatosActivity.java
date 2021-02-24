@@ -1108,71 +1108,7 @@ public class EstabConexRecibirDatosActivity extends OrmLiteBaseActivity<Database
             }
         };
 
-        /*if (device == BT12)
-        {
-            freq = 500;
-            dMin = 0;
-            dMax = 32767;
-            pMin = -43;
-            pMax = 43;
-            nChannels = 8;
-            I = 1;
-            II = 1;
-            III = 1;
-            aVR = 1;
-            aVL = 1;
-            aVF = 1;
-            V1 = 1;
-            V2 = 1;
-            V3 = 1;
-            V4 = 1;
-            V5 = 1;
-            V6 = 1;
-        }
-        //change the value of pMin/pMax  (-5.12/5.12)
-        else if (device == SRMed)
-        {
-            freq = 500;
-            dMin = 0;
-            dMax = 32767;
-            pMin = -8.537f;
-            pMax = 8.537f;
-            nChannels = 8;
-            I = 1;
-            II = 1;
-            III = 1;
-            aVR = 1;
-            aVL = 1;
-            aVF = 1;
-            V1 = 1;
-            V2 = 1;
-            V3 = 1;
-            V4 = 1;
-            V5 = 1;
-            V6 = 1;
-        }
-        else if (device == PocketEcg)
-        {
-            freq = 150;
-            dMin = 0;
-            dMax = 32767;
-            pMin = -5.12f;
-            pMax = 5.12f;
-            nChannels = 2;
-            I = 1;
-            II = 1;
-            III = 1;
-            aVR = 0;
-            aVL = 0;
-            aVF = 0;
-            V1 = 0;
-            V2 = 0;
-            V3 = 0;
-            V4 = 0;
-            V5 = 0;
-            V6 = 0;
-        }
-        else*/ if (device == TwinTrac)
+        if (device == TwinTrac)
         {
             freq = 500;
             dMin = 0;
@@ -1213,13 +1149,14 @@ public class EstabConexRecibirDatosActivity extends OrmLiteBaseActivity<Database
          * finish edit
          */
 
-        /* Power manager to keep the CPU on
+        /* Power manager to keep the CPU on**/
         PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
                 BTReceiver.class.getSimpleName());
         wl.acquire();
-         keep CPU on END */
+         /*keep CPU on END */
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -1473,9 +1410,8 @@ public class EstabConexRecibirDatosActivity extends OrmLiteBaseActivity<Database
         }
         reconnectDialog.show();
 
+        System.out.print("openDialogForConnect para establecer la reconexion con el dispositivo");
 
-        System.out.print("metodo openDialogForConnect que esta comentado el contenido");
-        Toast.makeText(this,"metodo openDialogForConnect que esta comentado el contenido",Toast.LENGTH_SHORT).show();
     }
 
     public void saveEDFAsTempFile(boolean finishMeasurement, int pointer)
@@ -2028,6 +1964,8 @@ public class EstabConexRecibirDatosActivity extends OrmLiteBaseActivity<Database
         refresh();
 
     }
+
+
 
     private void refresh()
     {
