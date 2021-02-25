@@ -261,17 +261,6 @@ public class EstabConexRecibirDatosActivity extends OrmLiteBaseActivity<Database
         @Override
         protected void onDraw(Canvas canvas)
         {
-            //			if (canvas == null)
-            //			{
-            //				Bitmap bitmap = Bitmap.createBitmap(canvas2.getWidth(),
-            //					canvas2.getHeight(), Bitmap.Config.ARGB_8888);
-            //				canvas = new Canvas(bitmap);
-            //			}
-            //			else
-            //			{
-            //				canvas.drawColor(Color.TRANSPARENT,
-            //					android.graphics.PorterDuff.Mode.CLEAR);
-            //			}
             paint.setTextSize(FONT_SIZE * density);
             Rect rect = canvas.getClipBounds();
             float[] line = new float[4];
@@ -1354,29 +1343,7 @@ public class EstabConexRecibirDatosActivity extends OrmLiteBaseActivity<Database
                 }
             }
         }
-        //Log.d(logTag, "actual pointer index value = " + pointer);
-        //		if (timer == null)
-        //		{
-        //			if (timerTask == null)
-        //			{
-        //				timerTask = new TimerTask()
-        //				{
-        //					@Override
-        //					public void run()
-        //					{
-        //						if (handler != null)
-        //						{
-        //							Message msg = handler.obtainMessage();
-        //							msg.what = NEW_ECG_PACKAGE;
-        //							handler.sendMessage(msg);
-        //						}
-        //					}
-        //				};
-        //			}
-        //			timer = new Timer();
-        //			timer.scheduleAtFixedRate(timerTask, 0, PERIOD);
-        //			startTime = new Date().getTime();
-        //		}
+
         if (handler != null)
         {
             Message msg = handler.obtainMessage();
