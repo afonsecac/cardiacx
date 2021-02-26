@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 
 import cu.rayrdguezo.cardiacs.modulos.login.LoginFragments;
+import cu.rayrdguezo.cardiacs.modulos.login.StartSessionLoginFragments;
 import cu.rayrdguezo.cardiacs.utiles.Constantes;
 
 public class FragmentActivity extends AppCompatActivity {
@@ -17,7 +18,7 @@ public class FragmentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
 
-        inicializarFragments(Constantes.NOMBRE_FRAGMENT_LOGIN);
+        inicializarFragments(Constantes.NOMBRE_FRAGMENT_START_SESSION_LOGIN);
 
     }
 
@@ -29,10 +30,11 @@ public class FragmentActivity extends AppCompatActivity {
                 contenidoFragments = new LoginFragments();
             }break;
 
-            /*case Constantes.NOMBRE_FRAGMENT_MATERIAL_DIDACTICO:{
-                contenidoFragments = new MaterialDidacticoFragments();
+            case Constantes.NOMBRE_FRAGMENT_START_SESSION_LOGIN:{
+                contenidoFragments = new StartSessionLoginFragments();
             }break;
 
+            /*
             case Constantes.NOMBRE_FRAGMENT_MAS_INFORMACION:{
                 contenidoFragments = new MasInformacionFragments();
             }break;
@@ -62,5 +64,7 @@ public class FragmentActivity extends AppCompatActivity {
 
 
     }
+
+
 
 }

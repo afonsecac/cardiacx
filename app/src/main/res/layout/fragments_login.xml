@@ -9,7 +9,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="24dp">
 
             <ImageView
                 android:id="@+id/loginImgVLogo"
@@ -20,6 +21,17 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/imgVLogoStack"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintBottom_toBottomOf="@+id/loginImgVLogo"
+                app:layout_constraintStart_toEndOf="@+id/loginImgVLogo"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/stack" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/loginTextInputUsername"
@@ -58,6 +70,24 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/loginTextInputSessionCode"
+                android:layout_margin="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/loginTextInputContrasena">
+
+                <EditText
+                    android:id="@+id/loginEditTextSessionCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Session code"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
             <CheckBox
                 android:id="@+id/loginCheckBoxRecordar"
                 android:layout_width="wrap_content"
@@ -66,22 +96,7 @@
                 android:layout_marginTop="16dp"
                 android:text="Recordar"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/loginTextInputContrasena" />
-
-            <Button
-                android:visibility="gone"
-                android:id="@+id/loginBtnEntrar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
-                android:background="@color/colorPrimaryDark"
-                android:text="START"
-                android:textColor="@android:color/white"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/loginCheckBoxRecordar" />
+                app:layout_constraintTop_toBottomOf="@+id/loginTextInputSessionCode" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardVStart"
@@ -104,8 +119,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Olivido la contrasena ?"
-                android:textSize="18sp"
+                android:text="Had you forgot your password?"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardVStart" />
