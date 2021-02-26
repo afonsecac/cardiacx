@@ -1,29 +1,35 @@
 package cu.rayrdguezo.cardiacs;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 
+import cu.rayrdguezo.cardiacs.modulos.login.LoginFragments;
+import cu.rayrdguezo.cardiacs.utiles.Constantes;
+
 public class FragmentActivity extends AppCompatActivity {
+
+    Fragment contenidoFragments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
 
-
+        inicializarFragments(Constantes.NOMBRE_FRAGMENT_LOGIN);
 
     }
 
     private void inicializarFragments( String items) {
-/*
+
         switch (items){
 
-            case Constantes.NOMBRE_FRAGMENT_RECORDATORIO_ADMIN:{
-                contenidoFragments = new RecordatorioAdminFragments();
+            case Constantes.NOMBRE_FRAGMENT_LOGIN:{
+                contenidoFragments = new LoginFragments();
             }break;
 
-            case Constantes.NOMBRE_FRAGMENT_MATERIAL_DIDACTICO:{
+            /*case Constantes.NOMBRE_FRAGMENT_MATERIAL_DIDACTICO:{
                 contenidoFragments = new MaterialDidacticoFragments();
             }break;
 
@@ -43,6 +49,8 @@ public class FragmentActivity extends AppCompatActivity {
                 contenidoFragments = new ResultadoNoCandidatoFormularioFragments();
             }break;
 
+             */
+
         }
 
         //carga fragment dinamico
@@ -52,7 +60,7 @@ public class FragmentActivity extends AppCompatActivity {
                 .disallowAddToBackStack()
                 .commit();
 
-        */
+
     }
 
 }

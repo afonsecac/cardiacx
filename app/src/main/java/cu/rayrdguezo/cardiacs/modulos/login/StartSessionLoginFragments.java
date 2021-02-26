@@ -5,32 +5,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.ArrayList;
 
 import cu.rayrdguezo.cardiacs.R;
 
-public class LoginFragments extends Fragment {
+public class StartSessionLoginFragments extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private ImageView imgVAtras;
 
-    public LoginFragments() {
+    public StartSessionLoginFragments() {
     }
 
     /**
      * Returns a new instance of this fragment for the given section
      * number.
      */
-    public static LoginFragments newInstance(int sectionNumber) {
-        LoginFragments fragment = new LoginFragments();
+    public static StartSessionLoginFragments newInstance(int sectionNumber) {
+        StartSessionLoginFragments fragment = new StartSessionLoginFragments();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
