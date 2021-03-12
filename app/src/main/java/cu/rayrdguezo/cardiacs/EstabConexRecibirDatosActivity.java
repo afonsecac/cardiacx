@@ -1107,7 +1107,7 @@ public class EstabConexRecibirDatosActivity extends OrmLiteBaseActivity<Database
             nChannels = 2;
             I = 1;
             II = 1;
-            III = 0;
+            III = 1;
             aVR = 0;
             aVL = 0;
             aVF = 0;
@@ -1811,7 +1811,7 @@ public class EstabConexRecibirDatosActivity extends OrmLiteBaseActivity<Database
             {
                 I = 1;
                 II = 1;
-                III = 0;
+                III = 1;
                 aVL = 0;
                 aVR = 0;
                 aVF = 0;
@@ -1879,7 +1879,7 @@ public class EstabConexRecibirDatosActivity extends OrmLiteBaseActivity<Database
             {
                 I = 1;
                 II = 1;
-                III = 0;
+                III = 1;
                 aVL = 1;
                 aVR = 1;
                 aVF = 1;
@@ -1913,7 +1913,7 @@ public class EstabConexRecibirDatosActivity extends OrmLiteBaseActivity<Database
             {
                 I = 1;
                 II = 1;
-                III = 0;
+                III = 1;
                 aVL = 1;
                 aVR = 1;
                 aVF = 1;
