@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:key="@string/preferenceScreen">
+
+    <!--
+	 <PreferenceCategory
+	   android:summary="Username and password information"
+	   android:title="Login information" >
+	  <EditTextPreference
+	     android:key="username"
+	     android:summary="Please enter your login username"
+	     android:title="Username" />
+	  <EditTextPreference
+	     android:key="password"
+	     android:summary="Enter your password"
+	     android:title="Password" 
+	     android:inputType="textPassword"
+	     />
+	     
+	 </PreferenceCategory>
+    -->
+
+    <PreferenceCategory
+        android:summary="user settings"
+        android:title="@string/menu_settings">
+
+        <!--
+         <CheckBoxPreference
+	     android:key="checkBox"
+	     android:summary="On/Off"
+	     android:title="Keep me logged in" />
+        -->
+
+        <EditTextPreference
+            android:name="@string/url_change_name"
+            android:defaultValue="@string/url_default_link"
+            android:key="@string/url_change_key"
+            android:title="@string/url_change_title"/>
+
+        <!--ListPreference
+            android:entries="@array/list_glucose_unit"
+            android:entryValues="@array/list_glucose_unit"
+            android:key="@string/glucose_unit_key"
+            android:summary="select your prefered unit"
+            android:title="@string/glucose_setting_title"/>
+
+        <ListPreference
+            android:entries="@array/list_weight_unit"
+            android:entryValues="@array/list_weight_unit"
+            android:key="@string/weight_unit_key"
+            android:summary="select your prefered unit"
+            android:title="@string/weight_setting_title"/-->
+
+        <DialogExPreference
+            android:dialogLayout="@layout/dialog_prefer_marker"
+            android:title="@string/menu_marker_title"/>
+
+        <!--ListPreference
+            android:entries="@array/filter_options"
+            android:entryValues="@array/filter_options_values"
+            android:key="@string/pref_filter_select_key"
+            android:title="@string/pref_filter_select_title"/-->
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/preference_titleLiveECG">
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/preferenceKey_liveECGTransmit"
+            android:summary="@string/preference_liveECGSummary"
+            android:switchTextOff="@string/preference_switch_off"
+            android:switchTextOn="@string/preference_switch_on"
+            android:title="@string/preference_titleLiveECG"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_config_twintrac_title">
+
+        <Preference
+            android:key="@string/preferenceKey_twintracupdate"
+            android:summary="Check to Update TwinTrac"
+            android:title="Update TwinTrac"
+            />
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/preferenceKey_twintracconfig"
+            android:summary="@string/pref_config_twintrac_summary"
+            android:switchTextOff="@string/preference_switch_off"
+            android:switchTextOn="@string/preference_switch_on"
+            android:title="@string/pref_config_twintrac_sub_title"/>
+
+        <!--ListPreference
+            android:entries="@array/list_temperature_unit"
+            android:entryValues="@array/list_temperature_unit"
+            android:key="@string/pref_temperature_unit_key"
+            android:summary=""
+            android:title="@string/pref_temperature_unit_title"/-->
+
+        <EditTextPreference
+            android:name="@string/pref_hr_minimum_value"
+            android:defaultValue="40"
+            android:inputType="numberDecimal|numberSigned"
+            android:key="@string/pref_hr_minimum_value_key"
+            android:title="@string/pref_hr_minimum_value_title"/>
+
+        <EditTextPreference
+            android:name="@string/pref_hr_maximum_value"
+            android:defaultValue="100"
+            android:inputType="numberDecimal|numberSigned"
+            android:key="@string/pref_hr_maximum_value_key"
+            android:title="@string/pref_hr_maximum_value_title"/>
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="preferenceCat_twintrac_config"
+        android:title="@string/pref_config_twintrac_title_detail">
+
+        <!--ListPreference
+            android:entries="@array/twintrac_recording_time"
+            android:entryValues="@array/twintrac_recording_time_values"
+            android:key="@string/pref_recording_time_key"
+            android:summary=""
+            android:title="@string/pref_recording_time_title"/-->
+
+        <SwitchPreference
+            android:key="@string/pref_hr_calculation_key"
+            android:summary="@string/pref_hr_calculation_summary"
+            android:switchTextOff="@string/preference_switch_off"
+            android:switchTextOn="@string/preference_switch_on"
+            android:title="@string/pref_hr_calculation_title"/>
+
+        <!--MultiSelectListPreference
+            android:entries="@array/channel_config_options"
+            android:entryValues="@array/channel_config_options"
+            android:key="@string/pref_channel_select_online_key"
+            android:title="@string/pref_online_channels_select"/-->
+
+        <!--MultiSelectListPreference
+            android:entries="@array/channel_config_options"
+            android:entryValues="@array/channel_config_options"
+            android:key="@string/pref_channel_select_sdcard_key"
+            android:title="@string/pref_sdcard_channels_select"/>
+
+        <ListPreference
+            android:entries="@array/twintrac_online_sample_rate"
+            android:entryValues="@array/twintrac_online_sample_rate_values"
+            android:key="@string/pref_online_sampling_key"
+            android:summary=""
+            android:title="@string/pref_online_sampling_title"/>
+
+        <ListPreference
+            android:entries="@array/twintrac_sdcard_sample_rate"
+            android:entryValues="@array/twintrac_sdcard_sample_rate_values"
+            android:key="@string/pref_sdcard_sampling_key"
+            android:summary=""
+            android:title="@string/pref_sdcard_sampling_title"/-->
+
+        <SwitchPreference
+            android:key="@string/pref_bluetooth_on_counter_always_key"
+            android:summary="@string/pref_bluetooth_always_online_name"
+            android:switchTextOff="@string/pref_bluetooth_always_online_off"
+            android:switchTextOn="@string/pref_bluetooth_always_online_on"
+            android:title="@string/pref_bluetooth_always_online_title"/>
+
+        <EditTextPreference
+            android:name="@string/pref_bluetooth_online_time_name"
+            android:inputType="number"
+            android:key="@string/pref_bluetooth_on_time_key"
+            android:title="@string/pref_bluetooth_online_time_title"/>
+
+        <!--ListPreference
+            android:entries="@array/recording_modus"
+            android:entryValues="@array/recording_modus_values"
+            android:key="@string/pref_recording_modus_key"
+            android:summary=""
+            android:title="@string/pref_recording_modus_title"
+            />
+
+        <ListPreference
+            android:entries="@array/recording_mode_time_event"
+            android:entryValues="@array/recording_mode_time_event_values"
+            android:key="@string/pref_recording_modus_time_event_key"
+            android:summary=""
+            android:title="@string/pref_recording_modus_time_event_title"
+            />
+
+        <ListPreference
+            android:entries="@array/recording_mode_time_loop"
+            android:entryValues="@array/recording_mode_time_loop_values"
+            android:key="@string/pref_recording_modus_time_loop_key"
+            android:summary=""
+            android:title="@string/pref_recording_modus_time_loop_title"
+            />
+
+        <ListPreference
+            android:entries="@array/usb_mode_selection"
+            android:entryValues="@array/usb_mode_selection_values"
+            android:key="@string/pref_usb_mode_key"
+            android:summary=""
+            android:title="@string/pref_usb_mode_key_title"
+            />
+
+        <ListPreference
+            android:entries="@array/softgain_select"
+            android:entryValues="@array/softgain_select_values"
+            android:key="@string/pref_softgain_key"
+            android:summary=""
+            android:title="@string/pref_softgain_title"
+            /-->
+
+        <SwitchPreference
+            android:key="@string/pref_download_protect_key"
+            android:summary="@string/pref_download_protect_summary"
+            android:switchTextOff="@string/preference_switch_off"
+            android:switchTextOn="@string/preference_switch_on"
+            android:title="@string/pref_download_protect_title"/>
+
+        <!--ListPreference
+            android:entries="@array/autostart_select"
+            android:entryValues="@array/autostart_select_values"
+            android:key="@string/pref_autostart_key"
+            android:summary=""
+            android:title="@string/pref_autostart_title"/-->
+
+        <EditTextPreference
+            android:name="@string/pref_autostart_time_name"
+            android:inputType="number"
+            android:key="@string/pref_autostart_time_key"
+            android:title="@string/pref_autostart_time_title"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

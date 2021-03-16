@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -20,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -53,7 +55,7 @@ public class BuscarDispositivosActivity extends AppCompatActivity implements Rec
             {
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 Log.d("BuscarDispositivo", "dispositivo bluetooth encontrado: " + device.getName() + " (" + device.getAddress() + ")");
-                dialog.ocultarCargando();
+                dialog.ocultar();
                 //Toast.makeText(context,"Dispositivo bluetooth encontrado: " + device.getName() + " (" + device.getAddress() + ")",Toast.LENGTH_SHORT).show();
                 for (int i = 0; i < deviceList.length; i++)
                 {
@@ -69,8 +71,9 @@ public class BuscarDispositivosActivity extends AppCompatActivity implements Rec
             }
             else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action))
             {
-                dialog.ocultarCargando();
-                //Toast.makeText(context,"Busqueda finalizada",Toast.LENGTH_SHORT).show();
+                dialog.ocultar();
+                //dd();
+                Toast.makeText(context,"Busqueda finalizada",Toast.LENGTH_SHORT).show();
             }
         }
     };
@@ -126,8 +129,8 @@ public class BuscarDispositivosActivity extends AppCompatActivity implements Rec
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
             }
         });
     }
@@ -167,6 +170,8 @@ public class BuscarDispositivosActivity extends AppCompatActivity implements Rec
 
         int cantDeCanales = cantDeCanales(dispositivoSeleccionado);
 
+        //saveBTAddress(dispositivoSeleccionado.getAddress());
+
         // Crear el resultado del Intent e incluir la direccion MAC
         Intent intent = new Intent();
         intent.putExtra(INTENT_RESULTEXTRA_DEVICEADDRESS, dispositivoSeleccionado.getAddress());
@@ -185,7 +190,7 @@ public class BuscarDispositivosActivity extends AppCompatActivity implements Rec
 
         // Indicar el buscar dispositivo
         dialog = new MyProgressDialog(this);
-        dialog.mostrarCargando("Buscando dispositivos ...");
+        dialog.mostrar("Buscando dispositivos ...");
 
         // Request discover from BluetoothAdapter
         btAdapter.startDiscovery();
@@ -212,6 +217,34 @@ public class BuscarDispositivosActivity extends AppCompatActivity implements Rec
             }
         }
         return 0;
+    }
+
+    public void dd(){
+        int channelNumber = 2;
+
+        // Create the result Intent and include the MAC address
+        Intent intent = new Intent();
+        intent.putExtra(INTENT_RESULTEXTRA_DEVICEADDRESS,
+                "00:04:3E:9C:28:50");
+        intent.putExtra(EXTRA_SHOULD_START_RECEIVER, shouldStartReceiver);
+        intent.putExtra(EXTRA_NUMBER_OF_CHANNELS, channelNumber);
+
+        // Set result and finish this Activity
+        setResult(Activity.RESULT_OK, intent);
+        finish();
+    }
+
+    private void saveBTAddress(String btAddress)
+    {
+        //btAddress "00:04:3E:9C:28:50"
+
+        SharedPreferences preferences = getSharedPreferences(MainActivity.PREFS_FILE, MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(EstabConexRecibirDatosActivity.EXTRAKEY_ECGDEVICE_BTADDRESS, btAddress);
+        editor.putInt(EstabConexRecibirDatosActivity.EXTRAKEY_ECGDEVICE_TYPE, EstabConexRecibirDatosActivity.TwinTrac);
+        editor.commit();
+
+        Toast.makeText(getApplicationContext(),"Dispositivo guardado correctamente",Toast.LENGTH_SHORT).show();
     }
 
 
