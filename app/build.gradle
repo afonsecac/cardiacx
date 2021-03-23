@@ -43,6 +43,6 @@ dependencies {
     implementation files('libs/ormlite-android-4.48.jar')
     implementation files('libs/ormlite-core-4.48.jar')
 
-    implementation 'com.varunjohn1990.libraries:WhatsappMessengerView:2.1.0'
+    //implementation 'com.varunjohn1990.libraries:WhatsappMessengerView:2.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
 }
