@@ -25,7 +25,7 @@ import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 
 
-public class FragmentActivity extends AppCompatActivity {
+public class LoginFragmentActivity extends AppCompatActivity {
     private Bundle savedInstanceState;
 
     Fragment contenidoFragments;
@@ -33,7 +33,7 @@ public class FragmentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment);
+        setContentView(R.layout.activity_login_fragment);
 
         inicializarFragments(Constantes.NOMBRE_FRAGMENT_START_SESSION_LOGIN);
 
@@ -117,9 +117,9 @@ public class FragmentActivity extends AppCompatActivity {
     }
 
     private boolean checkPermissionAfterAPI23() {
-        return (ActivityCompat.checkSelfPermission(FragmentActivity.this,WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-                && ActivityCompat.checkSelfPermission(FragmentActivity.this,CAMERA) == PackageManager.PERMISSION_GRANTED
-                && ActivityCompat.checkSelfPermission(FragmentActivity.this,ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED);
+        return (ActivityCompat.checkSelfPermission(LoginFragmentActivity.this,WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(LoginFragmentActivity.this,CAMERA) == PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(LoginFragmentActivity.this,ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED);
     }
 
     private boolean checkPermissionBeforeAPI23() {
@@ -142,7 +142,7 @@ public class FragmentActivity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int which) {
                                     switch (which) {
                                         case DialogInterface.BUTTON_POSITIVE:
-                                            ActivityCompat.requestPermissions(FragmentActivity.this, new String[]{
+                                            ActivityCompat.requestPermissions(LoginFragmentActivity.this, new String[]{
                                                     WRITE_EXTERNAL_STORAGE,
                                                     CAMERA,
                                                     ACCESS_COARSE_LOCATION}, 0);
@@ -157,7 +157,7 @@ public class FragmentActivity extends AppCompatActivity {
                 } else {
                     //Si le ha dado a "Don't ask again"
                     //Llevar a activity de la configuaracion de la app para cambiar permisos
-                    Toast.makeText(FragmentActivity.this, "Habilite los permisos de la aplicación en la configuración", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginFragmentActivity.this, "Habilite los permisos de la aplicación en la configuración", Toast.LENGTH_LONG).show();
                     while (!checkPermissionAfterAPI23()) {
                         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
                         intent.addCategory(Intent.CATEGORY_DEFAULT);
