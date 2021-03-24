@@ -7,15 +7,22 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 
+import cu.rayrdguezo.cardiacs.OrmLiteFragment;
 import cu.rayrdguezo.cardiacs.R;
+import cu.rayrdguezo.cardiacs.modulos.detallesdesesion.DetallesDeSesionFragment;
+import cu.rayrdguezo.cardiacs.utiles.Constantes;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link DatosPreeliminaresFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DatosPreeliminaresFragment extends Fragment {
+public class DatosPreeliminaresFragment extends OrmLiteFragment {
+
+    Button btnStart;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +68,20 @@ public class DatosPreeliminaresFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_datos_preeliminares, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_datos_preeliminares, container, false);
+
+        btnStart = (Button) rootView.findViewById(R.id.btnStart);
+        btnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.flujoPrincipalFramelayout, new DetallesDeSesionFragment() )
+                        .addToBackStack(Constantes.NOMBRE_FRAGMENT_DATOS_PREELIMINARES)
+                        .commit();
+            }
+        });
+
+        return rootView;
     }
 }

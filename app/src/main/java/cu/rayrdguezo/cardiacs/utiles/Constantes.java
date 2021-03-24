@@ -37,6 +37,7 @@ public class Constantes {
     public static final String NOMBRE_FRAGMENT_LOGIN = "fragment_login";
     public static final String NOMBRE_FRAGMENT_CHECK_CURRENT_SESSION_LOGIN = "fragment_current_session_login";
     public static final String NOMBRE_FRAGMENT_DATOS_PREELIMINARES = "fragment_datos_preeliminares";
+    public static final String NOMBRE_FRAGMENT_DETALLES_DE_SESION = "fragment_detalles_de_sesion";
 
 
 

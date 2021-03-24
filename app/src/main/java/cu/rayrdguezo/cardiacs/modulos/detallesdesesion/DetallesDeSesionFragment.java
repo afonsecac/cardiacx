@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import cu.rayrdguezo.cardiacs.OrmLiteFragment;
 import cu.rayrdguezo.cardiacs.R;
 
 /**
@@ -15,7 +16,7 @@ import cu.rayrdguezo.cardiacs.R;
  * Use the {@link DetallesDeSesionFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DetallesDeSesionFragment extends Fragment {
+public class DetallesDeSesionFragment extends OrmLiteFragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -55,12 +56,15 @@ public class DetallesDeSesionFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detalles_de_sesion, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_detalles_de_sesion, container, false);
+
+        return rootView;
     }
 }
