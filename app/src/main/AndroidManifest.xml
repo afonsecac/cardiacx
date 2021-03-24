@@ -28,7 +28,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FlujoPrincipalFragmentActivity" />
+        <activity
+            android:name=".FlujoPrincipalFragmentActivity"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".EstabConexRecibirDatosActivity"
             android:label="@string/title_activity_estab_conex_recibir_datos"
