@@ -884,7 +884,7 @@ public class EstabConexRecibirDatosActivity extends OrmLiteBaseActivity<Database
 
     private long startTimeConnectionLost = Long.MIN_VALUE;
 
-    private enum Mode
+    public enum Mode
     {
         THREE_CHANNEL_1,
         THREE_CHANNEL_2,
