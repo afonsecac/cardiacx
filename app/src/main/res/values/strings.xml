@@ -234,6 +234,8 @@
     <string name="update_firmware_dialog_title">Available Firmware</string>
     <string name="dialog_edf_not_available">EDF file is not available</string>
     <string name="menu_item_save_edf">Save EDF</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

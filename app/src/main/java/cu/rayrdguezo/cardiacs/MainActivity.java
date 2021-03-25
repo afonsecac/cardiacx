@@ -115,6 +115,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent intent = new Intent(this, BuscarDispositivosActivity.class);
             intent.putExtra(BuscarDispositivosActivity.EXTRA_SHOULD_START_RECEIVER, false);
             startActivityForResult(intent, BuscarDispositivosActivity.ACTIVITY_REQUESTCODE_INQUIRY);
+
+        }else if (id == R.id.nav_flujo_principal){
+            Intent intent = new Intent(this, FlujoPrincipalFragmentActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
