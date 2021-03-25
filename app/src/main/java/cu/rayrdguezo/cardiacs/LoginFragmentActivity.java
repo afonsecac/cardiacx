@@ -23,6 +23,8 @@ import cu.rayrdguezo.cardiacs.utiles.Constantes;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
+import static android.Manifest.permission.RECORD_AUDIO;
+
 
 
 public class LoginFragmentActivity extends AppCompatActivity {
@@ -42,7 +44,8 @@ public class LoginFragmentActivity extends AppCompatActivity {
                 ActivityCompat.requestPermissions(this, new String[]{
                         WRITE_EXTERNAL_STORAGE,
                         CAMERA,
-                        ACCESS_COARSE_LOCATION}, 0);
+                        ACCESS_COARSE_LOCATION,
+                        RECORD_AUDIO}, 0);
                 this.savedInstanceState = savedInstanceState;
             } else {
                 this.savedInstanceState = savedInstanceState;
@@ -119,13 +122,15 @@ public class LoginFragmentActivity extends AppCompatActivity {
     private boolean checkPermissionAfterAPI23() {
         return (ActivityCompat.checkSelfPermission(LoginFragmentActivity.this,WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(LoginFragmentActivity.this,CAMERA) == PackageManager.PERMISSION_GRANTED
-                && ActivityCompat.checkSelfPermission(LoginFragmentActivity.this,ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED);
+                && ActivityCompat.checkSelfPermission(LoginFragmentActivity.this,ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(LoginFragmentActivity.this,RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED);
     }
 
     private boolean checkPermissionBeforeAPI23() {
         return (checkCallingOrSelfPermission(WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
                 && checkCallingOrSelfPermission(CAMERA) == PackageManager.PERMISSION_GRANTED
-                && checkCallingOrSelfPermission(ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED);
+                && checkCallingOrSelfPermission(ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
+                && checkCallingOrSelfPermission(RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED);
     }
 
     @Override
@@ -145,7 +150,8 @@ public class LoginFragmentActivity extends AppCompatActivity {
                                             ActivityCompat.requestPermissions(LoginFragmentActivity.this, new String[]{
                                                     WRITE_EXTERNAL_STORAGE,
                                                     CAMERA,
-                                                    ACCESS_COARSE_LOCATION}, 0);
+                                                    ACCESS_COARSE_LOCATION,
+                                                    RECORD_AUDIO}, 0);
                                             ;
                                             break;
                                         case DialogInterface.BUTTON_NEGATIVE:
