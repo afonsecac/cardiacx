@@ -101,5 +101,80 @@
       <option name="name" value="maven" />
       <option name="url" value="https://jitpack.io" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="injected_offline_io" />
+      <option name="name" value="injected_offline_io" />
+      <option name="url" value="file:/$PROJECT_DIR$/../../../../Android/Repo_Gradle/gmaven_stable/io/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="injected_offline_net" />
+      <option name="name" value="injected_offline_net" />
+      <option name="url" value="file:/$PROJECT_DIR$/../../../../Android/Repo_Gradle/gmaven_stable/net/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="injected_offline_com" />
+      <option name="name" value="injected_offline_com" />
+      <option name="url" value="file:/$PROJECT_DIR$/../../../../Android/Repo_Gradle/gmaven_stable/com/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="injected_offline_commons-io" />
+      <option name="name" value="injected_offline_commons-io" />
+      <option name="url" value="file:/$PROJECT_DIR$/../../../../Android/Repo_Gradle/gmaven_stable/commons-io/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="injected_offline_android" />
+      <option name="name" value="injected_offline_android" />
+      <option name="url" value="file:/$PROJECT_DIR$/../../../../Android/Repo_Gradle/gmaven_stable/android/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="injected_offline_it" />
+      <option name="name" value="injected_offline_it" />
+      <option name="url" value="file:/$PROJECT_DIR$/../../../../Android/Repo_Gradle/gmaven_stable/it/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="injected_offline_org" />
+      <option name="name" value="injected_offline_org" />
+      <option name="url" value="file:/$PROJECT_DIR$/../../../../Android/Repo_Gradle/gmaven_stable/org/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="injected_offline_commons-codec" />
+      <option name="name" value="injected_offline_commons-codec" />
+      <option name="url" value="file:/$PROJECT_DIR$/../../../../Android/Repo_Gradle/gmaven_stable/commons-codec/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="injected_offline_androidx" />
+      <option name="name" value="injected_offline_androidx" />
+      <option name="url" value="file:/$PROJECT_DIR$/../../../../Android/Repo_Gradle/gmaven_stable/androidx/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="injected_offline_javax" />
+      <option name="name" value="injected_offline_javax" />
+      <option name="url" value="file:/$PROJECT_DIR$/../../../../Android/Repo_Gradle/gmaven_stable/javax/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="injected_offline_commons-logging" />
+      <option name="name" value="injected_offline_commons-logging" />
+      <option name="url" value="file:/$PROJECT_DIR$/../../../../Android/Repo_Gradle/gmaven_stable/commons-logging/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="injected_offline_ru" />
+      <option name="name" value="injected_offline_ru" />
+      <option name="url" value="file:/$PROJECT_DIR$/../../../../Android/Repo_Gradle/gmaven_stable/ru/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="injected_offline_junit" />
+      <option name="name" value="injected_offline_junit" />
+      <option name="url" value="file:/$PROJECT_DIR$/../../../../Android/Repo_Gradle/gmaven_stable/junit/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="injected_offline_gmaven_stable" />
+      <option name="name" value="injected_offline_gmaven_stable" />
+      <option name="url" value="file:/$PROJECT_DIR$/../../../../Android/Repo_Gradle/gmaven_stable/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="injected_offline_android-gradle-plugin-3.5.0-beta01" />
+      <option name="name" value="injected_offline_android-gradle-plugin-3.5.0-beta01" />
+      <option name="url" value="file:/$PROJECT_DIR$/../../../../Android/Repo_Gradle/android-gradle-plugin-3.5.0-beta01/" />
+    </remote-repository>
   </component>
 </project>
