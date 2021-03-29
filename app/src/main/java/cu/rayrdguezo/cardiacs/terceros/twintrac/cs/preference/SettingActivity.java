@@ -33,8 +33,8 @@ import cu.rayrdguezo.cardiacs.R;
 public class SettingActivity extends PreferenceActivity implements
         OnPreferenceChangeListener, OnPreferenceClickListener
 {
-	public final static String ECG_LIVE_TRANSMITT = "de.avetana.apps.cardioscout.liveecgtransmit";
-	private final static String TWIN_TRAC_CONFIG = "de.avetana.apps.cardioscout.twintrac.config";
+	public final static String ECG_LIVE_TRANSMITT = "cu.rayrdguezo.liveecgtransmit";
+	private final static String TWIN_TRAC_CONFIG = "cu.rayrdguezo.twintrac.config";
 
 	private PreferenceCategory twintrac;
 

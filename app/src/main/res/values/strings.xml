@@ -75,7 +75,7 @@
     <string name="confirmationTitle">Confirm</string>
     <string name="buttonText_defaultAvetana">Use Avetana server</string>
     <string name="measurement_received">Measurement retrieved</string>
-    <string name="contentprovider_authority">de.avetana.cs.contentprovider</string>
+    <string name="contentprovider_authority">cu.rayrdguezo.cardiacs.contentprovider</string>
     <string name="arrhythmiaSymbol">!</string>
     <string name="menuItemDelete">Delete</string>
     <string name="menu_item_inquire">Inquire</string>

@@ -310,60 +310,6 @@ public class BTReceiver extends AsyncTask<BCTarget, Void, Exception>
 		currentlySleep = false;
 		if (converterFirstTime)
 		{
-			/*if (device == EstabConexRecibirDatosActivity.BT12)
-			{
-				// Check for protocol version and notify the Converter of the new
-				// Version
-				Data d = conv.sendAndWaitFor(
-					new RequestData(DataCreator.PROTOCOL_TYPE), 3000);
-
-				// This can happen when the connection was interrupted and the device
-				// has not
-				// gotten aware of this yet. Then it still sends ECG data even after
-				// re-connection
-				if (!(d instanceof BCProtocol))
-				{
-					throw new Exception("Device needs to be restarted!");
-				}
-				BCProtocol prot = (BCProtocol) d;
-
-				Log.d(getClass().getSimpleName(),
-					"Running on version "			+ prot.getVersion() + " maxPLLen "
-													+ prot.getMaxPayloadLen());
-				// Converter can handle different protocol versions.
-				conv.setCurrentVersion(prot.getVersion());
-
-				// Request the serial number and other device information
-				//			Log.d(BTReceiver.class.getSimpleName(), "REQUEST: CS_TYPE_IDENT");
-				IdentData ident = (IdentData) conv.sendAndWaitFor(
-					new RequestData(DataCreator.CS_TYPE_IDENT), 1000);
-				Log.d(getClass().getSimpleName(),
-					"Serial number " + ident.getSerialNum());
-
-				// Now tell the BT12 to transmit 8 leads at 500 Hz
-				Data ret = conv.sendAndWaitFor(new BlueEKGConfig(
-					BlueEKGConfig.FREQ500, BlueEKGConfig.LEADS8), 1000);
-				Log.d(getClass().getSimpleName(),
-					"Answer for config packet " + ret);
-
-				// Start the ECG transmission. Received data will be received by the newData method.
-				conv.sendData(new BlueEKGStartStop(true));
-			}
-			else if (device == EstabConexRecibirDatosActivity.SRMed)
-			{
-				// Cannot use conv.sendData() since it appends useless header & footer
-				Log.i(logTag, "OnlineControl = " + onlineControl);
-				if (!onlineControl)
-				{
-					conv.getOutputStream().write(
-						new SRMedStartStop(true).getPayload());
-					conv.getOutputStream().flush();
-				}
-			}
-			else
-			{
-				return;
-			}*/
 			if (device == EstabConexRecibirDatosActivity.TwinTrac)
 				return;
 

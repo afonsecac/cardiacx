@@ -40,5 +40,11 @@ public class Constantes {
     public static final String NOMBRE_FRAGMENT_DETALLES_DE_SESION = "fragment_detalles_de_sesion";
 
 
+    /** This flag is added to an ECG Value if a Pacemaker impulse was detected */
+    public static final short PACEMAKER_DETECTED = (short) 0x8000;
+
+    public static final String BTReceiver = "BTReceiver";
+
+
 
 }

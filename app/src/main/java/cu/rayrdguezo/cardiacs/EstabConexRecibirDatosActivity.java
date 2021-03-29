@@ -64,6 +64,7 @@ import cu.rayrdguezo.cardiacs.terceros.twintrac.ecg.filter.BaseFilter;
 import cu.rayrdguezo.cardiacs.terceros.twintrac.twintrac.TwinTracBtReceiver;
 import cu.rayrdguezo.cardiacs.terceros.twintrac.twintrac.TwinTracConfigManager;
 import cu.rayrdguezo.cardiacs.terceros.twintrac.twintrac.TwinTracOnlineDataHolder;
+import cu.rayrdguezo.cardiacs.utiles.Constantes;
 import cu.rayrdguezo.cardiacs.utiles.MyProgressDialog;
 import cu.rayrdguezo.cardiacs.terceros.twintrac.twintrac.TwinTracBtReceiver.TwinTracDataListener;
 
@@ -368,17 +369,8 @@ public class EstabConexRecibirDatosActivity extends OrmLiteBaseActivity<Database
                         }
                     }
                     float I = 0;
-                    /*if (device == SRMed)
-                    {
-                        float II = ecgValues[index];
-                        float III = ecgValues[index + 1];
-                        I = II - III;
-                    }
-                    else if (device == PocketEcg)
-                    {
-                        I = ecgValues[index];
-                    }
-                    else*/ if (device == TwinTrac)
+
+                    if (device == TwinTrac)
                     {
                         float II = ecgValues[index];
                         float III = ecgValues[index + 1];
@@ -419,15 +411,8 @@ public class EstabConexRecibirDatosActivity extends OrmLiteBaseActivity<Database
                         }
                     }
                     float II = 0;
-                    /*if (device == SRMed)
-                    {
-                        II = ecgValues[index];
-                    }
-                    else if (device == PocketEcg)
-                    {
-                        II = ecgValues[index + 1];
-                    }
-                    else*/ if (device == TwinTrac)
+
+                    if (device == TwinTrac)
                     {
                         II = ecgValues[index];
                         //						II = ecgValues[index + 1];
@@ -466,17 +451,8 @@ public class EstabConexRecibirDatosActivity extends OrmLiteBaseActivity<Database
                         }
                     }
                     float III = 0;
-                    /*if (device == SRMed)
-                    {
-                        III = ecgValues[index + 1];
-                    }
-                    else if (device == PocketEcg)
-                    {
-                        float I = ecgValues[index];
-                        float II = ecgValues[index + 1];
-                        III = II - I;
-                    }
-                    else*/ if (device == TwinTrac)
+
+                    if (device == TwinTrac)
                     {
                         III = ecgValues[index + 1];
                         //						float I = ecgValues[index];
@@ -1057,17 +1033,12 @@ public class EstabConexRecibirDatosActivity extends OrmLiteBaseActivity<Database
             @Override
             public void handleMessage(Message msg)
             {
-                //				Log.d(BTReceiverGraphActivity.class.getSimpleName(),
-                //					msg.toString());
+                				Log.d(EstabConexRecibirDatosActivity.class.getSimpleName(),
+                					msg.toString());
                 if (msg.what == NEW_ECG_PACKAGE)
                 {
                     scroll.requestLayout();
-                    //					if (device == TwinTrac)
-                    //					{
-                    //						gv.invalidate();
-                    //						return;
-                    //					}
-                    //gv.invalidate();
+
                     int left = 0;
                     int ptr = 0;
                     /*if (device == PocketEcg)

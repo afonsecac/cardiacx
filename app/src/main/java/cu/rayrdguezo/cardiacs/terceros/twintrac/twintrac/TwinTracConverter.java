@@ -1,6 +1,7 @@
 package cu.rayrdguezo.cardiacs.terceros.twintrac.twintrac;
 
 import android.os.Build;
+import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,6 +11,7 @@ import java.util.Arrays;
 import cu.rayrdguezo.cardiacs.EstabConexRecibirDatosActivity;
 import cu.rayrdguezo.cardiacs.terceros.twintrac.bluecor.Converter;
 import cu.rayrdguezo.cardiacs.terceros.twintrac.bluecor.data.Data;
+import cu.rayrdguezo.cardiacs.terceros.twintrac.bluecor.data.TwinTracDataCreator;
 
 public class TwinTracConverter extends Converter
 {
@@ -40,8 +42,8 @@ public class TwinTracConverter extends Converter
 	{
 		try
 		{
-			//			Log.d(TwinTracConverter.class.getSimpleName(),
-			//				"Sending data: " + TwinTracDataCreator.byteArrayToHex(in));
+						Log.d(TwinTracConverter.class.getSimpleName(),
+							"-------- Sending data -----------------: " + TwinTracDataCreator.byteArrayToHex(in));
 			sleepBeforeSend(200);
 			this.rawOut.write(in);
 			this.rawOut.flush();
@@ -91,9 +93,9 @@ public class TwinTracConverter extends Converter
 				//				}
 
 				int posp = -1;
-				System.out.println("Waiting for data");
+				System.out.println(" ------------------- Waiting for data --------------------------");
 				posp = rawIn.read(b, 0, b.length);
-				System.out.println("data received: " + posp);
+				System.out.println("------------------- data received ----------- : " + posp);
 
 				if (posp == -1)
 				{

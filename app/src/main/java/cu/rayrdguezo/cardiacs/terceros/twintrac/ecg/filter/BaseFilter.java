@@ -1,6 +1,6 @@
 package cu.rayrdguezo.cardiacs.terceros.twintrac.ecg.filter;
 
-import cu.rayrdguezo.cardiacs.terceros.twintrac.bluecor.data.BlueECGData;
+import cu.rayrdguezo.cardiacs.utiles.Constantes;
 
 /**
  * Basis-Filter Klasse, welche die eigentlichen Filter Routinen Enthält.
@@ -113,7 +113,7 @@ public abstract class BaseFilter
 			return 0;
 		}
 
-		boolean pmd = ((oData & BlueECGData.PACEMAKER_DETECTED) == BlueECGData.PACEMAKER_DETECTED);
+		boolean pmd = ((oData & Constantes.PACEMAKER_DETECTED) == Constantes.PACEMAKER_DETECTED);
 
 		oData = (short) (oData & 0x7fff);
 
@@ -125,7 +125,7 @@ public abstract class BaseFilter
 		//		System.out.println (" -> " + oData);
 		oData = (short) (oData & 0x7fff);
 
-		oData = (short) (oData | (pmd ? BlueECGData.PACEMAKER_DETECTED : 0));
+		oData = (short) (oData | (pmd ? Constantes.PACEMAKER_DETECTED : 0));
 		return oData;
 
 	}
@@ -478,7 +478,7 @@ public abstract class BaseFilter
 			return 0;
 		}
 
-		pmd = (v & BlueECGData.PACEMAKER_DETECTED) == BlueECGData.PACEMAKER_DETECTED;
+		pmd = (v & Constantes.PACEMAKER_DETECTED) == Constantes.PACEMAKER_DETECTED;
 		v &= 0x7fff;
 		v -= 16384;
 
@@ -492,7 +492,7 @@ public abstract class BaseFilter
 		v += 16384;
 		if (pmd)
 		{
-			v |= BlueECGData.PACEMAKER_DETECTED;
+			v |= Constantes.PACEMAKER_DETECTED;
 		}
 		return v;
 

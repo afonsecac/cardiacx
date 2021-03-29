@@ -8,20 +8,16 @@ package cu.rayrdguezo.cardiacs.terceros.twintrac.bluecor.data;
 public class DataCreator
 {
 
-	public static final int TERM_TYPE = 0x0000, ACK_TYPE = 0x0200,
-					NACK_TYPE = 0x0300, REJ_TYPE = 0x0400,
-					PROTOCOL_TYPE = 0x0100, DELETE_OLD_VALUES = 0x010a;
-	public final static int CS_TYPE_IDENT = 0x0500, CS_TYPE_ECG = 0x0706,
-					CS_TYPE_ECG_CMEASY = 0x0607, CS_TYPE_ECG_BLUEEKG = 0x0700,
+	//public static final int TERM_TYPE = 0x0000, ACK_TYPE = 0x0200, NACK_TYPE = 0x0300, REJ_TYPE = 0x0400, PROTOCOL_TYPE = 0x0100, DELETE_OLD_VALUES = 0x010a;
+	public final static int /*CS_TYPE_IDENT = 0x0500,*/ CS_TYPE_ECG = 0x0706,
+					CS_TYPE_ECG_CMEASY = 0x0607, /*CS_TYPE_ECG_BLUEEKG = 0x0700,*/
 					CS_TYPE_ECG_BLUEEKG_24INIT = 0x0724,
-					CS_TYPE_ECG_BLUEEKG_24REL = 0x725,
-					CS_TYPE_WARTUNG = 0x0600, CS_TYPE_ECG_CONFIG = 0x0709,
-					CS_TYPE_ECG_CHANNEL_CONFIG = 0x070a;
+					CS_TYPE_ECG_BLUEEKG_24REL = 0x725/*, CS_TYPE_ECG_CONFIG = 0x0709,
+					CS_TYPE_ECG_CHANNEL_CONFIG = 0x070a*/;
 	public final static int CS_TYPE_BLUEEKG_CONFIG = 0x0901,
 					CS_TYPE_BLUEEKG_STARTSTOP = 0x0905,
-					CS_TYPE_SRMED_STARTSTOP = 0x0909,
 					CS_TYPE_BLUEEKG_CONFIG_RET = 0x0701;
-	public final static int CS_TYPE_PROTOCOL = 0x0100;
+	//public final static int CS_TYPE_PROTOCOL = 0x0100;
 	public final static int CS_TYPE_REQUEST = 0x0800;
 
 	private static final int INITIAL_REMAINDER_CCITT = 0xFFFF;
@@ -123,8 +119,8 @@ public class DataCreator
 	 */
 	public Data createData(byte[] content, int version) throws Exception
 	{
-		boolean beg = content[0] == (byte) 0xfc;
-		boolean end = content[content.length - 1] == (byte) 0xfd;
+		boolean beg = content[0] == (byte) 0xfc; //si bandera de inicio startFleg
+		boolean end = content[content.length - 1] == (byte) 0xfd; //si bandera de fin endFleg
 		boolean error = false;
 		int lendiff = (beg ? 1 : 0) + (end ? 1 : 0);
 		byte[] b2 = unstuff(content, beg ? 1 : 0, content.length - lendiff);
@@ -202,50 +198,47 @@ public class DataCreator
 
 		switch (type)
 		{
-			case TERM_TYPE:
+			/*case TERM_TYPE:
 			retD = new TermData();
-				break;
-			case ACK_TYPE:
+				break;*/
+			/*case ACK_TYPE:
 			retD = new AckData();
-				break;
+				break;*/
 			// case NACK_TYPE: retD = new NackData(); break;
 			// case REJ_TYPE: retD = new TermData(); break;
-			case CS_TYPE_IDENT:
+			/*case CS_TYPE_IDENT:
 			retD = new IdentData();
-				break;
-			case CS_TYPE_ECG_CMEASY:
-			case CS_TYPE_ECG:
+				break;*/
+			//case CS_TYPE_ECG_CMEASY:
+			/*case CS_TYPE_ECG:
 			retD = new ECGData(CS_TYPE_ECG, version);
 				break;
 			case CS_TYPE_ECG_BLUEEKG:
 			retD = new ECGData(CS_TYPE_ECG_BLUEEKG, version);
-				break;
-			case CS_TYPE_ECG_BLUEEKG_24REL:
-			case CS_TYPE_ECG_BLUEEKG_24INIT:
+				break;*/
+			//case CS_TYPE_ECG_BLUEEKG_24REL:
+			/*case CS_TYPE_ECG_BLUEEKG_24INIT:
 			retD = new BlueECGData(type, version);
-				break;
-			case CS_TYPE_WARTUNG:
+				break;*/
+			/*case CS_TYPE_WARTUNG:
 			retD = new Wartung();
-				break;
-			case CS_TYPE_ECG_CONFIG:
+				break;*/
+			/*case CS_TYPE_ECG_CONFIG:
 			retD = new ECGConfig();
-				break;
-			case CS_TYPE_ECG_CHANNEL_CONFIG:
+				break;*/
+			/*case CS_TYPE_ECG_CHANNEL_CONFIG:
 			retD = new ChannelConfig();
-				break;
-			case CS_TYPE_BLUEEKG_CONFIG:
-			case CS_TYPE_BLUEEKG_CONFIG_RET:
+				break;*/
+			//case CS_TYPE_BLUEEKG_CONFIG:
+			/*case CS_TYPE_BLUEEKG_CONFIG_RET:
 			retD = new BlueEKGConfig();
 				break;
 			case CS_TYPE_BLUEEKG_STARTSTOP:
 			retD = new BlueEKGStartStop();
-				break;
-			case CS_TYPE_SRMED_STARTSTOP:
-			retD = new SRMedStartStop();
-				break;
-			case CS_TYPE_PROTOCOL:
+				break;*/
+			/*case CS_TYPE_PROTOCOL:
 			retD = new BCProtocol();
-				break;
+				break;*/
 			default:
 			retD = new Data(type);
 		}

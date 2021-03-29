@@ -22,7 +22,7 @@ import java.sql.SQLException;
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper
 {
 
-	/* default */static final String DATABASE_NAME = "de.avetana.cs.DB";
+	/* default */static final String DATABASE_NAME = "cu.rayrdguezo.cardiacs.DB";
 	/* default *///static final int DATABASE_VERSION = 1;
 	static final int DATABASE_VERSION = 2;
 	private Dao<MeasurementECG, Integer> ecgDao;
