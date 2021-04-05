@@ -31,12 +31,14 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -941,6 +943,8 @@ public class EstabConexRecibirDatosActivity extends OrmLiteBaseActivity<Database
     //Va a ser igual a 0x4 por ser twintrac el dispositivo al que nos estamos conectando
     private int device;
 
+    AlertDialog customDialog = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -1162,7 +1166,8 @@ public class EstabConexRecibirDatosActivity extends OrmLiteBaseActivity<Database
             {
                 if (startTimeConnectionLost == Long.MIN_VALUE)
                 {
-                    openDialogForConnect();
+                    //openDialogForConnect();
+                    mostrarErrorDialog();
                     startTimeConnectionLost = System.currentTimeMillis();
                 }
                 final Patient pat = (Patient) getIntent().getSerializableExtra(
@@ -1199,7 +1204,9 @@ public class EstabConexRecibirDatosActivity extends OrmLiteBaseActivity<Database
             long stopTimeConnectionLost = System.currentTimeMillis();
             autoFillDataDuringDisconnection((stopTimeConnectionLost - startTimeConnectionLost) / (1000));
             startTimeConnectionLost = Long.MIN_VALUE;
-            reconnectDialog.dismiss();
+            //reconnectDialog.dismiss();
+            customDialog.dismiss();
+
         }
 
     }
@@ -1911,6 +1918,40 @@ public class EstabConexRecibirDatosActivity extends OrmLiteBaseActivity<Database
         BT12AxisView.reloadDefaults();
         findViewById(R.id.ecgAxisView).invalidate();
         gv.postInvalidate();
+    }
+
+    public void mostrarErrorDialog(){
+
+        if (customDialog == null) {
+
+            System.out.print("mostrarErrorDialog para establecer la reconexion con el dispositivo");
+
+            final AlertDialog.Builder dialogError = new AlertDialog.Builder(EstabConexRecibirDatosActivity.this);
+            View customView = LayoutInflater.from(EstabConexRecibirDatosActivity.this).inflate(R.layout.error_conexion, null);
+
+            //RelativeLayout btnReintentarDialog = customView.findViewById(R.id.errorConexionRelLReintentar);
+            RelativeLayout btnSalirDialog = customView.findViewById(R.id.errorConexionRelLSalir);
+
+            dialogError.setView(customView);
+
+            customDialog = dialogError.create();
+            customDialog.setCancelable(false);
+            customDialog.setCanceledOnTouchOutside(false);
+            customDialog.show();
+
+            btnSalirDialog.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    long stopTimeConnectionLost = System.currentTimeMillis();
+                    autoFillDataDuringDisconnection((stopTimeConnectionLost - startTimeConnectionLost) / (1000));
+                    startTimeConnectionLost = Long.MIN_VALUE;
+                    stopReceiverForDevice(true);
+                    customDialog.dismiss();
+                    twinTracReceiver.cancel(true);
+                }
+            });
+        }
     }
 
 }
